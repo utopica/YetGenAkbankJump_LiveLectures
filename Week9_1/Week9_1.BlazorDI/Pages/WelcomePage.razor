@@ -1,14 +1,19 @@
-﻿@using Week9_1.BlazorDI.Services;
+﻿
+@page "/welcome-page"
+@using Week9_1.BlazorDI.Services;
+@using Week9_1.Shared.Helpers
+@using Microsoft.Extensions.Localization
+@inject IToasterService toastService
+@inject IStringLocalizer<CommonTranslations> Localizer
+
 <h3>WelcomePage</h3>
 
-@inject IToasterService toastService
+@code
+{
+    protected override void OnAfterRender(bool firstRender)
+    {
+        toastService.ShowWarning(Localizer[CommonTranslationKeys.WelcomeMessage]);
 
-@code {
-	protected override void OnAfterRender(bool firstRender)
-	{
-		toastService.ShowSuccess("Welcome!");
-
-		base.OnAfterRender(firstRender);
-
-	}
+        base.OnAfterRender(firstRender);
+    }
 }

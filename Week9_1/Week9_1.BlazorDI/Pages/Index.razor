@@ -19,7 +19,9 @@ Welcome to your new app.
 	{
 		//toastService.ShowSuccess("Welcome!")
 
-		toastService.ShowSuccess(localizer["WelcomeMessageBlazor"]);
+		//toastService.ShowSuccess(localizer["WelcomeMessageBlazor"]);
+
+		toastService.ShowSuccess(localizer[CommonTranslationKeys.WelcomeMessageBlazor]);
 
 		base.OnAfterRender(firstRender);
 

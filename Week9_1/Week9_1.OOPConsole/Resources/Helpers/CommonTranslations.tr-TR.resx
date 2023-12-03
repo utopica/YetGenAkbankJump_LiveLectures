@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Passwords" xml:space="preserve">
+    <value>Şifreler</value>
+  </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Hoş geldiniz</value>
   </data>
   <data name="WelcomeMessageBlazor" xml:space="preserve">
     <value>Blazor Uygulamamıza Hoş Geldiniz</value>
+  </data>
+  <data name="WelcomePage" xml:space="preserve">
+    <value>Ana Sayfa</value>
   </data>
 </root>
