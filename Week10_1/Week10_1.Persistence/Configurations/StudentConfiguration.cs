@@ -61,6 +61,12 @@ namespace Week10_1.Persistence.Configurations
 
             builder.Property(x => x.Gender).HasConversion<int>();
 
+            //IsGraduated
+            builder.Property(x => x.IsGraduated).IsRequired();
+
+            builder.Property(x => x.IsGraduated).HasDefaultValueSql("false");
+
+
             // COMMON FIELDS
 
             // CreatedByUserId

@@ -5,6 +5,8 @@ using Microsoft.Extensions.Options;
 using Week9_1.Shared.Services;
 using Week9_1.WebApi.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Week10_1.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +53,12 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 	options.ApplyCurrentCultureToResponseHeaders = true;
 
 });
+
+//Adding DbContext for project Week10_1
+
+var connectionString = builder.Configuration.GetSection("YetgenPosgreSQLDB").Value;
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 
