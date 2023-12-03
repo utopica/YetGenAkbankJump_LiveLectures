@@ -9,6 +9,8 @@ namespace Week9_1.Shared.Utilities
 {
 	public class PasswordGenerator
 	{
+		private string _lastIp = string.Empty; 
+		private readonly IIPService _ipService;
 		private readonly ITextService _textService;
 		public int GeneratedPasswordsCount { get; set; } = 0; //for see the total generated passwords count using dependancy injection
 
@@ -20,10 +22,11 @@ namespace Week9_1.Shared.Utilities
 		private const string UpperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		private const string Full = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()";
 
-        public PasswordGenerator(ITextService textService)
+        public PasswordGenerator(ITextService textService, IIPService ipService)
         {
             _random = new Random();
             _textService = textService;
+            _ipService = ipService;
         }
 
         public string Generate(int passwordLength, bool includeNumbers, bool includeLowerCase, bool includeUpperCase, bool includeSpecialChars)
@@ -61,6 +64,8 @@ namespace Week9_1.Shared.Utilities
 
 
 			_textService.Save(password);
+
+			_lastIp = _ipService.Ip;
 
 			return password;
 		}

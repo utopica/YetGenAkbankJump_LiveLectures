@@ -11,24 +11,30 @@ namespace Week9_1.WebApi.Controllers
 	[ApiController]
 	public class CrazyPasswordsController : ControllerBase
 	{
-		private readonly IStringLocalizer<CommonTranslations> _localizer;
+		private readonly IIPService _ipService;
+
+        private readonly ITextService _textService;
+
+        private readonly IStringLocalizer<CommonTranslations> _localizer;
 
 		private readonly PasswordGenerator _passwordGenerator;
 		private readonly RequestCountService _requestCountService;
 
-		private readonly ITextService _textService;
-        public CrazyPasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer, ITextService textService)
+        public CrazyPasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer, ITextService textService, IIPService ipService)
         {
             _passwordGenerator = passwordGenerator;
             _requestCountService = requestCountService;
             _localizer = localizer;
             _textService = textService;
+            _ipService = ipService;
         }
 
         [HttpGet]
 		public IActionResult Get()
 		{
 			_requestCountService.Count += 1;
+
+			_ipService.Ip = "192.168.1.30"; 
 
 			return Ok(_passwordGenerator.Generate(10, true, true, true, true));
 		}

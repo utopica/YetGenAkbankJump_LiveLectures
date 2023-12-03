@@ -21,8 +21,12 @@ builder.Services.AddSingleton<PasswordGenerator>();
 builder.Services.AddSingleton<RequestCountService>(new RequestCountService());
 
 var textPath = builder.Configuration.GetSection("TextPath").Value;
+
 //builder.Services.AddSingleton<TextService>(new TextService(textPath));
+
 builder.Services.AddSingleton<ITextService,TextService>();
+
+builder.Services.AddSingleton<IIPService, IPService>();
 
 // Localization
 
