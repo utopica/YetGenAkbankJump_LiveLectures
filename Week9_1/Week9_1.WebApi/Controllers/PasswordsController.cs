@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Week9_1.Shared.Utilities;
 
 namespace Week9_1.WebApi.Controllers
@@ -8,12 +9,16 @@ namespace Week9_1.WebApi.Controllers
 	[ApiController]
 	public class PasswordsController : ControllerBase
 	{
+		private readonly IStringLocalizer<PasswordsController> _localizer;
+
+
 		private readonly PasswordGenerator _passwordGenerator;
 		private readonly RequestCountService _requestCountService;
-		public PasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService)
+		public PasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<PasswordsController> localizer)
 		{
 			_passwordGenerator = passwordGenerator;
 			_requestCountService = requestCountService;
+			_localizer = localizer;
 		}
 
 		[HttpGet]
@@ -26,10 +31,21 @@ namespace Week9_1.WebApi.Controllers
 			 
 		}
 
+		[HttpGet("WelcomeMessage")]
+		public IActionResult GetWelcomeMessage()
+		{
+			return Ok(_localizer["WelcomeMessage"]);
+		}
+
 		[HttpGet("GetCount")]
 		public IActionResult GetCount()
 		{
 			_requestCountService.Count += 1;
+
+			if(_passwordGenerator.GeneratedPasswordsCount == 0)
+			{
+				return BadRequest(_localizer["No passwords have been generated."]);
+			}
 
 			return Ok(_passwordGenerator.GeneratedPasswordsCount);
 		}

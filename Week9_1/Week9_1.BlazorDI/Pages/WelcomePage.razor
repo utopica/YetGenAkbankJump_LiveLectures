@@ -1,0 +1,14 @@
+﻿@using Week9_1.BlazorDI.Services;
+<h3>WelcomePage</h3>
+
+@inject IToasterService toastService
+
+@code {
+	protected override void OnAfterRender(bool firstRender)
+	{
+		toastService.ShowSuccess("Welcome!");
+
+		base.OnAfterRender(firstRender);
+
+	}
+}

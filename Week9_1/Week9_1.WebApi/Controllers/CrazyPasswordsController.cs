@@ -37,8 +37,6 @@ namespace Week9_1.WebApi.Controllers
 		{
 			_requestCountService.Count += 1;
 
-            Console.WriteLine(	"hello");
-
             return Ok(_requestCountService.Count);
 		}
 
