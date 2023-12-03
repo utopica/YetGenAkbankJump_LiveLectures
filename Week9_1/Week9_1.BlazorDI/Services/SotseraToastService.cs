@@ -1,10 +1,12 @@
-﻿using Sotsera.Blazor.Toaster;
+﻿using Microsoft.Extensions.Localization;
+using Sotsera.Blazor.Toaster;
 
 namespace Week9_1.BlazorDI.Services
 {
 	public class SotseraToastService : IToasterService
 	{
 		private readonly IToaster _toaster;
+		
 
 		public SotseraToastService(IToaster toaster)
 		{

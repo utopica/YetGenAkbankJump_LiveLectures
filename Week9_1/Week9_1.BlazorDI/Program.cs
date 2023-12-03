@@ -24,4 +24,12 @@ builder.Services.AddToaster(config =>
 	config.NewestOnTop = true;
 });
 
+// Localization
+
+builder.Services.AddLocalization(options =>
+{
+	options.ResourcesPath = "Resources";
+});
+
+
 await builder.Build().RunAsync();

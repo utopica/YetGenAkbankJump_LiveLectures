@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Week9_1.Shared.Helpers;
 using Week9_1.Shared.Utilities;
 
 namespace Week9_1.WebApi.Controllers
@@ -9,12 +10,12 @@ namespace Week9_1.WebApi.Controllers
 	[ApiController]
 	public class PasswordsController : ControllerBase
 	{
-		private readonly IStringLocalizer<PasswordsController> _localizer;
+		private readonly IStringLocalizer<CommonTranslations> _localizer;
 
 
 		private readonly PasswordGenerator _passwordGenerator;
 		private readonly RequestCountService _requestCountService;
-		public PasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<PasswordsController> localizer)
+		public PasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer)
 		{
 			_passwordGenerator = passwordGenerator;
 			_requestCountService = requestCountService;

@@ -1,6 +1,10 @@
 ﻿@page "/"
+@using Microsoft.Extensions.Localization;
 @using Week9_1.BlazorDI.Services;
+@using Week9_1.Shared.Helpers;
 @inject IToasterService toastService
+@inject IStringLocalizer<CommonTranslations> localizer
+
 
 <PageTitle>Index</PageTitle>
 
@@ -13,7 +17,9 @@ Welcome to your new app.
 @code{
 	protected override void OnAfterRender(bool firstRender)
 	{
-		toastService.ShowSuccess("Welcome!");
+		//toastService.ShowSuccess("Welcome!")
+
+		toastService.ShowSuccess(localizer["WelcomeMessageBlazor"]);
 
 		base.OnAfterRender(firstRender);
 
