@@ -2,6 +2,9 @@ using System.Globalization;
 using Week9_1.Shared.Utilities;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using Week9_1.Shared.Services;
+using Week9_1.WebApi.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +17,12 @@ builder.Services.AddSwaggerGen();
 
 // Dependancy Injections
 
-builder.Services.AddSingleton<PasswordGenerator>(new PasswordGenerator());
+builder.Services.AddSingleton<PasswordGenerator>();
 builder.Services.AddSingleton<RequestCountService>(new RequestCountService());
+
+var textPath = builder.Configuration.GetSection("TextPath").Value;
+//builder.Services.AddSingleton<TextService>(new TextService(textPath));
+builder.Services.AddSingleton<ITextService,TextService>();
 
 // Localization
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Week9_1.Shared.Helpers;
+using Week9_1.Shared.Services;
 using Week9_1.Shared.Utilities;
 
 namespace Week9_1.WebApi.Controllers
@@ -15,14 +16,16 @@ namespace Week9_1.WebApi.Controllers
 		private readonly PasswordGenerator _passwordGenerator;
 		private readonly RequestCountService _requestCountService;
 
-		public CrazyPasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer)
-		{
-			_passwordGenerator = passwordGenerator;
-			_requestCountService = requestCountService;
-			_localizer = localizer;
-		}
+		private readonly ITextService _textService;
+        public CrazyPasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer, ITextService textService)
+        {
+            _passwordGenerator = passwordGenerator;
+            _requestCountService = requestCountService;
+            _localizer = localizer;
+            _textService = textService;
+        }
 
-		[HttpGet]
+        [HttpGet]
 		public IActionResult Get()
 		{
 			_requestCountService.Count += 1;

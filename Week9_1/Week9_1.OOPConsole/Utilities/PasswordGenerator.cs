@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Week9_1.Shared.Services;
 
 namespace Week9_1.Shared.Utilities
 {
 	public class PasswordGenerator
 	{
+		private readonly ITextService _textService;
 		public int GeneratedPasswordsCount { get; set; } = 0; //for see the total generated passwords count using dependancy injection
 
 		private readonly Random _random;
@@ -18,12 +20,13 @@ namespace Week9_1.Shared.Utilities
 		private const string UpperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		private const string Full = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()";
 
-		public PasswordGenerator()
-		{
-			_random = new Random();
-		}
+        public PasswordGenerator(ITextService textService)
+        {
+            _random = new Random();
+            _textService = textService;
+        }
 
-		public string Generate(int passwordLength, bool includeNumbers, bool includeLowerCase, bool includeUpperCase, bool includeSpecialChars)
+        public string Generate(int passwordLength, bool includeNumbers, bool includeLowerCase, bool includeUpperCase, bool includeSpecialChars)
 		{
 			var charsBuilder = new StringBuilder();
 
@@ -53,7 +56,13 @@ namespace Week9_1.Shared.Utilities
 
 			GeneratedPasswordsCount++;
 
-			return passwordBuilder.ToString();
+			//saving the password to a file
+			var password = passwordBuilder.ToString();
+
+
+			_textService.Save(password);
+
+			return password;
 		}
 	}
 }
