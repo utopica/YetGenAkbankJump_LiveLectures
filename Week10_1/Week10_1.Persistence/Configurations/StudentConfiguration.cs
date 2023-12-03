@@ -49,7 +49,7 @@ namespace Week10_1.Persistence.Configurations
 
             builder.Property(x => x.Age).HasColumnType("smallint");
 
-            builder.Property(x => x.Age).HasConversion<int>();
+            //builder.Property(x => x.Age).HasConversion<int>();
 
             //RegistrationFee
             builder.Property(x => x.RegistrationFee).IsRequired(false); //this field is nullable

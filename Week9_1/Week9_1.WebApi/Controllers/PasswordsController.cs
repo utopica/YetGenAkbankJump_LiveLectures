@@ -19,12 +19,15 @@ namespace Week9_1.WebApi.Controllers
 
         private readonly ITextService _textService;
 
+
         public PasswordsController(PasswordGenerator passwordGenerator, RequestCountService requestCountService, IStringLocalizer<CommonTranslations> localizer, ITextService textService)
         {
             _passwordGenerator = passwordGenerator;
             _requestCountService = requestCountService;
             _localizer = localizer;
             _textService = textService;
+
+            
         }
 
         [HttpGet]
@@ -33,7 +36,7 @@ namespace Week9_1.WebApi.Controllers
 		{
 			_requestCountService.Count += 1;
 
-			return Ok(_passwordGenerator.Generate(10, true, true, true, true));
+            return Ok(_passwordGenerator.Generate(10, true, true, true, true));
 			 
 		}
 
