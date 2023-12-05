@@ -16,6 +16,9 @@ namespace Week10_1.Persistence.Contexts
     {
         public DbSet<Student> Students { get; set; }
 
+        public DbSet <Product> Products { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions)
         {
