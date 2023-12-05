@@ -12,8 +12,8 @@ using Week10_1.Persistence.Contexts;
 namespace Week10_1.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231203174821_mig1")]
-    partial class mig1
+    [Migration("20231205103528_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,7 +75,8 @@ namespace Week10_1.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsGraduated")
+                    b.Property<bool?>("IsGraduated")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValueSql("false");

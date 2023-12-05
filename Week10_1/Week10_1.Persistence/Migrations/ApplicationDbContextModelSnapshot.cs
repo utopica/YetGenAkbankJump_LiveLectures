@@ -72,7 +72,8 @@ namespace Week10_1.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsGraduated")
+                    b.Property<bool?>("IsGraduated")
+                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValueSql("false");

@@ -17,10 +17,6 @@ namespace Week10_1.Persistence.Contexts
         public DbSet<Student> Students { get; set; }
 
 
-        public ApplicationDbContext()
-        {
-                
-        }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions)
         {
         }

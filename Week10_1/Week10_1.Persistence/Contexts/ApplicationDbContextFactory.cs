@@ -15,7 +15,7 @@ namespace Week10_1.Persistence.Contexts
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("ConnectionString.json")
                 .Build();
 
            
