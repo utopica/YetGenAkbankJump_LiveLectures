@@ -3,8 +3,10 @@ using Week10_1.Persistence.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Add services to the container. Adding toast
+builder.Services.AddControllersWithViews()
+    .AddNToastNotifyToastr();
+
 
 // Activating the session structure
 
@@ -49,6 +51,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.UseSession();
+
+app.UseNToastNotify();
 
 app.MapControllerRoute(
     name: "default",
