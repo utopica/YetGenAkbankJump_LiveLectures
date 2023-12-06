@@ -23,25 +23,34 @@ namespace Week9_1.WebApi.Controllers
         {
             var product = await _applicationDbContext
                 .Products
-                .AsNoTracking()
                 .Include(x => x.Category)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-
-            //var category = await _applicationDbContext
-            //    .Categories
-            //    .FirstOrDefaultAsync(X=> X.Id == product.CategoryId);
 
             //var products =  _applicationDbContext.Products.Where(x => x.CategoryId == id);
 
             //var categoryName = product.Category.Name;
 
             return Ok(product);
-                
-                
+
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
+        {
+            var products = await _applicationDbContext
+                .Products
+                .Include(x => x.Category)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
+
+
+            return Ok();
         }
 
         [HttpPost]
-        public async Task<IActionResult>  AddProduct(ProductAddDto productAddDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddProduct(ProductAddDto productAddDto, CancellationToken cancellationToken)
         {
             if (productAddDto is null || String.IsNullOrEmpty(productAddDto.Name) || productAddDto.CategoryId == Guid.Empty)
             {
@@ -52,7 +61,7 @@ namespace Week9_1.WebApi.Controllers
                 Id = Guid.NewGuid(),
                 Name = productAddDto.Name,
                 CategoryId = productAddDto.CategoryId,
-                CreatedByUserId = "elifokumus",
+                CreatedByUserId = "ElifOkumus",
                 CreatedOn = DateTimeOffset.UtcNow,
                 IsDeleted = false
 
@@ -61,8 +70,9 @@ namespace Week9_1.WebApi.Controllers
             await _applicationDbContext.Products.AddAsync(product);
 
             await _applicationDbContext.SaveChangesAsync(cancellationToken);
-            return Ok();
+
+            return Ok(product);
         }
-        
+
     }
 }
