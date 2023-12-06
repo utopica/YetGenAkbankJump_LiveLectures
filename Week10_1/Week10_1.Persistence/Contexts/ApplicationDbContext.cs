@@ -32,6 +32,10 @@ namespace Week10_1.Persistence.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            modelBuilder.Ignore<User>(); // those classes aren't this dbcontext's concern
+            modelBuilder.Ignore<Role>();
+            modelBuilder.Ignore<UserSetting>();
+
             base.OnModelCreating(modelBuilder);
 
         }

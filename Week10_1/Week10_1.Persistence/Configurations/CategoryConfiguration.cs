@@ -53,9 +53,9 @@ namespace Week10_1.Persistence.Configurations
             builder.Property(x => x.IsDeleted).IsRequired();
 
             // Relationships
-            builder.HasMany<Product>(x=>x.ProductCategories)
-                .WithOne(x=>x.Category)
-                .HasForeignKey(x=>x.CategoryId);
+            //builder.HasMany<Product>(x=>x.ProductCategories)
+            //    .WithOne(x=>x.Category)
+            //    .HasForeignKey(x=>x.CategoryId);
 
             builder.ToTable("Categories");
 

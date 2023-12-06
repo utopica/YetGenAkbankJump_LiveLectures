@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Week10_1.Domain.Entities;
 using Week10_1.Domain.Identity;
 
 namespace Week10_1.Persistence.Contexts
@@ -23,11 +24,14 @@ namespace Week10_1.Persistence.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //modelBuilder.Ignore<User>();
-            //modelBuilder.Ignore<Role>();
-            //modelBuilder.Ignore<UserSetting>();
+            //modelBuilder.Ignore<User>(); //because we get the "categories already exist" 
+            modelBuilder.Ignore<Student>();
+            modelBuilder.Ignore<Product>();
+            modelBuilder.Ignore<Category>();
+            modelBuilder.Ignore<ProductCategory>();
 
 
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

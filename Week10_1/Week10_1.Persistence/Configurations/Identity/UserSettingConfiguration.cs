@@ -13,7 +13,7 @@ namespace Week10_1.Persistence.Configurations.Identity
 {
     public class UserSettingConfiguration : IEntityTypeConfiguration<UserSetting>
     {
-        public UserSetting Id { get; set; }
+        //public UserSetting Id { get; set; }
 
         public void Configure(EntityTypeBuilder<UserSetting> builder)
         {

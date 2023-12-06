@@ -9,11 +9,14 @@ namespace Week10_1.Domain.Entities
     public class Product : EntityBase<Guid>
     {
         public string Name { get; set; }
-        public ICollection<Product> Products { get; set;}
 
-        public Guid CategoryId { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
 
-        public Category Category { get; set; }
+        //public ICollection<Product> Products { get; set;}
+
+        //public Guid CategoryId { get; set; }
+
+        //public Category Category { get; set; }
 
 
     }

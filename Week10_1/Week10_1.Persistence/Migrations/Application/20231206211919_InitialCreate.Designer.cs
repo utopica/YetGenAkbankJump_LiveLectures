@@ -9,11 +9,11 @@ using Week10_1.Persistence.Contexts;
 
 #nullable disable
 
-namespace Week10_1.Persistence.Migrations
+namespace Week10_1.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231206171301_mig2")]
-    partial class mig2
+    [Migration("20231206211919_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,9 +72,6 @@ namespace Week10_1.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("CreatedByUserId")
                         .IsRequired()
                         .HasMaxLength(75)
@@ -105,16 +102,32 @@ namespace Week10_1.Persistence.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<Guid?>("ProductId")
+                    b.HasKey("Id");
+
+                    b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("Week10_1.Domain.Entities.ProductCategory", b =>
+                {
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedByUserId")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("character varying(75)");
+
+                    b.Property<DateTimeOffset>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("ProductId", "CategoryId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("ProductCategories", (string)null);
                 });
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Student", b =>
@@ -193,151 +206,7 @@ namespace Week10_1.Persistence.Migrations
                     b.ToTable("Students", (string)null);
                 });
 
-            modelBuilder.Entity("Week10_1.Domain.Identity.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTimeOffset?>("BirthDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("text");
-
-                    b.Property<string>("CreatedByUserId")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("character varying(75)");
-
-                    b.Property<DateTimeOffset>("CreatedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("character varying(60)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTimeOffset?>("LastModifiedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("character varying(60)");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasMaxLength(75)
-                        .HasColumnType("character varying(75)");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
-
-                    b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("Week10_1.Domain.Identity.UserSetting", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CreatedByUserId")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("character varying(75)");
-
-                    b.Property<DateTimeOffset>("CreatedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("DeletedByUserId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("DeletedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("LanguageCode")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("LastModifiedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasMaxLength(75)
-                        .HasColumnType("character varying(75)");
-
-                    b.Property<short>("TimeZone")
-                        .HasColumnType("smallint");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserSettings", (string)null);
-                });
-
-            modelBuilder.Entity("Week10_1.Domain.Entities.Product", b =>
+            modelBuilder.Entity("Week10_1.Domain.Entities.ProductCategory", b =>
                 {
                     b.HasOne("Week10_1.Domain.Entities.Category", "Category")
                         .WithMany("ProductCategories")
@@ -345,22 +214,15 @@ namespace Week10_1.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Week10_1.Domain.Entities.Product", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Week10_1.Domain.Identity.UserSetting", b =>
-                {
-                    b.HasOne("Week10_1.Domain.Identity.User", "User")
-                        .WithOne("UserSetting")
-                        .HasForeignKey("Week10_1.Domain.Identity.UserSetting", "UserId")
+                    b.HasOne("Week10_1.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Category", b =>
@@ -370,13 +232,7 @@ namespace Week10_1.Persistence.Migrations
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Product", b =>
                 {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Week10_1.Domain.Identity.User", b =>
-                {
-                    b.Navigation("UserSetting")
-                        .IsRequired();
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

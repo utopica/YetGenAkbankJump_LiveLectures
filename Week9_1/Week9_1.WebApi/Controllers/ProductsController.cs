@@ -23,7 +23,7 @@ namespace Week9_1.WebApi.Controllers
         {
             var product = await _applicationDbContext
                 .Products
-                .Include(x => x.Category)
+                //.Include(x => x.Category)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
@@ -41,8 +41,20 @@ namespace Week9_1.WebApi.Controllers
         {
             var products = await _applicationDbContext
                 .Products
-                .Include(x => x.Category)
+                .Include(x => x.ProductCategories)
+                .ThenInclude(x=>x.Category)
                 .AsNoTracking()
+                .Select(x=> new ProductDto()
+                {
+                    Id = x.Id,
+                    Name  = x.Name,
+                    CreatedOn = x.CreatedOn,
+                    Categories = x.ProductCategories.Select(x=> new ProductGetAllCategoryDto()
+                    {
+                        Id = x.Category.Id,
+                        Name = x.Category.Name,
+                    }).ToList(),
+                })
                 .ToListAsync(cancellationToken);
 
 
@@ -50,20 +62,42 @@ namespace Week9_1.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(ProductAddDto productAddDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddProductAsync(ProductAddDto productAddDto, CancellationToken cancellationToken)
         {
-            if (productAddDto is null || String.IsNullOrEmpty(productAddDto.Name) || productAddDto.CategoryId == Guid.Empty)
+            if (productAddDto is null || String.IsNullOrEmpty(productAddDto.Name) )
             {
                 return BadRequest();
             }
+
+            List<ProductCategory> productCategories = new List<ProductCategory>();
+
+            var id = Guid.NewGuid();
+
+            if (productAddDto.CategoryId is not null && productAddDto.CategoryId.Any())
+            {
+                foreach (var categoryId in productAddDto.CategoryId)
+                {
+                    var productCategory = new ProductCategory()
+                    {
+                        CategoryId = categoryId,
+                        ProductId = id,
+                        CreatedOn = DateTimeOffset.UtcNow,
+                        CreatedByUserId = "elifokumus"
+                    };
+
+                    productCategories.Add(productCategory);
+                }
+            }
+
             var product = new Product()
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Name = productAddDto.Name,
-                CategoryId = productAddDto.CategoryId,
+                //CategoryId = productAddDto.CategoryId,
                 CreatedByUserId = "ElifOkumus",
                 CreatedOn = DateTimeOffset.UtcNow,
-                IsDeleted = false
+                //IsDeleted = false
+                ProductCategories = productCategories
 
             };
 

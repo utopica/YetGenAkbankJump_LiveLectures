@@ -10,7 +10,7 @@ namespace Week10_1.Domain.Entities
     {
         public string Name { get; set; }
 
-        public ICollection<Product> ProductCategories { get; set;}
+        public ICollection<ProductCategory> ProductCategories { get; set;}
 
         // dbContext.Categories.Include(x=>x.Products).FirstOrDefaultAsync(x=>x.Id == 12345);
 

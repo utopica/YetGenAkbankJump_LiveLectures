@@ -2,21 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Week10_1.Persistence.Contexts;
 
 #nullable disable
 
-namespace Week10_1.Persistence.Migrations
+namespace Week10_1.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231205214724_mig1")]
-    partial class mig1
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +69,6 @@ namespace Week10_1.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("CreatedByUserId")
                         .IsRequired()
                         .HasMaxLength(75)
@@ -105,16 +99,32 @@ namespace Week10_1.Persistence.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<Guid?>("ProductId")
+                    b.HasKey("Id");
+
+                    b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("Week10_1.Domain.Entities.ProductCategory", b =>
+                {
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedByUserId")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("character varying(75)");
+
+                    b.Property<DateTimeOffset>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("ProductId", "CategoryId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("ProductCategories", (string)null);
                 });
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Student", b =>
@@ -193,7 +203,7 @@ namespace Week10_1.Persistence.Migrations
                     b.ToTable("Students", (string)null);
                 });
 
-            modelBuilder.Entity("Week10_1.Domain.Entities.Product", b =>
+            modelBuilder.Entity("Week10_1.Domain.Entities.ProductCategory", b =>
                 {
                     b.HasOne("Week10_1.Domain.Entities.Category", "Category")
                         .WithMany("ProductCategories")
@@ -201,11 +211,15 @@ namespace Week10_1.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Week10_1.Domain.Entities.Product", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ProductId");
+                    b.HasOne("Week10_1.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Category", b =>
@@ -215,7 +229,7 @@ namespace Week10_1.Persistence.Migrations
 
             modelBuilder.Entity("Week10_1.Domain.Entities.Product", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,6 +9,6 @@ namespace Week10_1.Domain.Dtos
     public class ProductAddDto
     {
         public string Name { get; set; }
-        public Guid CategoryId { get; set; }
+        public List<Guid> CategoryId { get; set; }
     }
 }
