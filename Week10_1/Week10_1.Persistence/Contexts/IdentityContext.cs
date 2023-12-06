@@ -19,8 +19,6 @@ namespace Week10_1.Persistence.Contexts
 
 
 
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

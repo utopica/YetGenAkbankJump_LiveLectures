@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace Week10_1.Persistence.Contexts
 {
-    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public class IdentiyDbContextFactory : IDesignTimeDbContextFactory<IdentityContext>
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
+        public IdentityContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("ConnectionString.json")
                 .Build();
 
-           
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+
+            var optionsBuilder = new DbContextOptionsBuilder<IdentityContext>();
 
             var connectionString = configuration.GetSection("YetgenPostgreSQLDB").Value;
 
             optionsBuilder.UseNpgsql(connectionString);
 
-            return new ApplicationDbContext(optionsBuilder.Options);
+            return new IdentityContext(optionsBuilder.Options);
         }
 
-
+        
     }
 }

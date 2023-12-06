@@ -23,11 +23,10 @@ namespace Week10_1.Persistence.Contexts
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions)
         {
+
         }
 
         
-
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

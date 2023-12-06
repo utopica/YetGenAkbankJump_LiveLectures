@@ -60,11 +60,11 @@ namespace Week9_1.WebApi.Controllers
             };
 
             await _applicationDbContext.Categories.AddAsync(category, cancellationToken);
-            await _applicationDbContext.Categories.AddAsync(category, cancellationToken);
+
 
 
             await _applicationDbContext.SaveChangesAsync(cancellationToken);
-            
+
 
 
             return Ok(category);

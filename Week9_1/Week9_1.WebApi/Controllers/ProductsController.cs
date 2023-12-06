@@ -46,7 +46,7 @@ namespace Week9_1.WebApi.Controllers
                 .ToListAsync(cancellationToken);
 
 
-            return Ok();
+            return Ok(products);
         }
 
         [HttpPost]

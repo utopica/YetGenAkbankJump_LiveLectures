@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 Week7_2/Infrastructure/Week7_2.Persistence/PrivateInformations.json
 Week9_1/Week9_1.WebApi/ConnectionString.json
+Week9_1/Week9_1.WebApi/appsettings.json
+Week9_1/Week9_1.WebApi/appsettings.json
+Week9_1/Week9_1.WebApi/appsettings.json
