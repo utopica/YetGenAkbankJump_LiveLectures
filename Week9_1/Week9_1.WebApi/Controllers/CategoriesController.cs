@@ -37,17 +37,18 @@ namespace Week9_1.WebApi.Controllers
                 .Categories
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
-            return Ok();
+
+
+            return Ok(category);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> AddAsync (CategoryAddDto categoryAddDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddAsync(CategoryAddDto categoryAddDto, CancellationToken cancellationToken)
         {
+
             if (categoryAddDto is null)
-            {
                 return BadRequest("Category's name cannot be null");
-            }
 
             var category = new Category()
             {
@@ -56,18 +57,21 @@ namespace Week9_1.WebApi.Controllers
                 CreatedByUserId = "elifokumus",
                 CreatedOn = DateTimeOffset.UtcNow,
                 IsDeleted = false,
-
             };
 
-            await _applicationDbContext.Categories.AddAsync(category);
+            await _applicationDbContext.Categories.AddAsync(category, cancellationToken);
+            await _applicationDbContext.Categories.AddAsync(category, cancellationToken);
+
 
             await _applicationDbContext.SaveChangesAsync(cancellationToken);
+            
+
 
             return Ok(category);
-
-            // CancellationTokenSource source = new CancellationTokenSource();
         }
-
-        
     }
+
+
 }
+
+//CancellationTokenSource source = new CancellationTokenSource();

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Week10_1.Domain.Entities;
 using Week10_1.Persistence.Configurations;
+using Week10_1.Domain.Identity;
 
 namespace Week10_1.Persistence.Contexts
 {
@@ -24,11 +25,7 @@ namespace Week10_1.Persistence.Contexts
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfiguration(new StudentConfiguration());
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        
 
 
 
@@ -36,11 +33,15 @@ namespace Week10_1.Persistence.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //modelBuilder.Ignore<User>();
-            //modelBuilder.Ignore<Role>();
-            //modelBuilder.Ignore<UserSetting>();
-
+            base.OnModelCreating(modelBuilder);
 
         }
+
     }
 }
+
+//protected override void OnModelCreating(ModelBuilder modelBuilder)
+//{
+//    modelBuilder.ApplyConfiguration(new StudentConfiguration());
+//    base.OnModelCreating(modelBuilder);
+//}
