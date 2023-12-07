@@ -41,15 +41,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week11_Assignment", "Week11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E41026CD-E2DD-4388-B959-EA026E699CF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week11_Assignment.Domain", "Week11_Assignment\Core\Week11_Assignment.Domain\Week11_Assignment.Domain.csproj", "{CD3A47BB-7F1F-4E58-A3DD-E72BC573DE5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week11_Assignment.Domain", "Week11_Assignment\Core\Week11_Assignment.Domain\Week11_Assignment.Domain.csproj", "{CD3A47BB-7F1F-4E58-A3DD-E72BC573DE5E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C360D670-377A-4957-8BA9-06FA6A278876}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week11_Assignment.Persistence", "Week11_Assignment\Infrastructure\Week11_Assignment.Persistence\Week11_Assignment.Persistence.csproj", "{70E13283-C34D-42CC-9424-C47D9F70D125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week11_Assignment.Persistence", "Week11_Assignment\Infrastructure\Week11_Assignment.Persistence\Week11_Assignment.Persistence.csproj", "{70E13283-C34D-42CC-9424-C47D9F70D125}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{DB420D46-D9D3-4663-9311-709114B205AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week11_Assignment.API", "Week11_Assignment\Presentation\Week11_Assignment.API\Week11_Assignment.API.csproj", "{2F4CF359-B786-413C-A22D-AD85323511EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week11_Assignment.API", "Week11_Assignment\Presentation\Week11_Assignment.API\Week11_Assignment.API.csproj", "{2F4CF359-B786-413C-A22D-AD85323511EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week6_1", "Week6_1", "{382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7C8F3418-027A-48BD-87AE-E680192088BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Domain", "Week6_1\Core\RedoMusicMarket.Domain\RedoMusicMarket.Domain.csproj", "{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +115,10 @@ Global
 		{2F4CF359-B786-413C-A22D-AD85323511EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4CF359-B786-413C-A22D-AD85323511EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4CF359-B786-413C-A22D-AD85323511EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +143,8 @@ Global
 		{70E13283-C34D-42CC-9424-C47D9F70D125} = {C360D670-377A-4957-8BA9-06FA6A278876}
 		{DB420D46-D9D3-4663-9311-709114B205AC} = {84D9A9BD-44F4-49FD-84A3-9683289BE468}
 		{2F4CF359-B786-413C-A22D-AD85323511EE} = {DB420D46-D9D3-4663-9311-709114B205AC}
+		{7C8F3418-027A-48BD-87AE-E680192088BE} = {382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}
+		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F} = {7C8F3418-027A-48BD-87AE-E680192088BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBFD949E-921C-4A7F-A402-39C6E1BE3135}
