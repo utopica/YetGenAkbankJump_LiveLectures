@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using Week11_Assignment.API.Models;
 using Week11_Assignment.Domain.Dtos;
 using Week11_Assignment.Domain.Entities;
 using Week11_Assignment.Persistence.Contexts;
@@ -59,15 +60,21 @@ namespace Week11_Assignment.API.Controllers
             return Ok(movie);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
-        {
-            var movies = await _assignmentDbContext
-                .Movies
-                .AsNoTracking()
-                .ToListAsync(cancellationToken);
 
-            return Ok(movies);
+        [HttpGet("[action]/{MovieId}")]
+        public GetMovieDataResponseModel GetMovieData(Guid MovieId,CancellationToken cancellationToken)
+        {
+            var movie = _assignmentDbContext.Movies.FirstOrDefault(x => x.Id == MovieId);
+
+            var response = new GetMovieDataResponseModel()
+            {
+                Title = movie.Title,
+                DirectorId = movie.DirectorId,
+                ReleaseYear = movie.ReleaseYear,
+                Genre = movie.Genre,
+            };
+
+            return response;
         }
     }
 }

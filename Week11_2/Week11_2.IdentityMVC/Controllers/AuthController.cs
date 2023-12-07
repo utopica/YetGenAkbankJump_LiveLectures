@@ -92,7 +92,7 @@ namespace Week11_2.IdentityMVC.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", controllerName: "Students");
+                return RedirectToAction("Index", controllerName: "Home");
             } //if the user is authenticated, user should view the index page
 
             var loginViewModel = new AuthLoginViewModel();
