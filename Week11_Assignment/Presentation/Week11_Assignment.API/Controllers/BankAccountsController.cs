@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Week11_Assignment.API.Models;
+using Week11_Assignment.Domain.Dtos;
 using Week11_Assignment.Domain.Entities;
 using Week11_Assignment.Persistence.Contexts;
 
@@ -73,6 +74,56 @@ namespace Week11_Assignment.API.Controllers
             _assignmentDbContext.BankAccounts.AddRange(people);
 
             _assignmentDbContext.SaveChanges();
+        }
+        //[HttpPost]
+        //public IActionResult AddBankAccount(BankAccountDto bankAccountDto)
+        //{
+        //    var bankAccount = new BankAccount()
+        //    {
+        //        Id = Guid.NewGuid(),
+        //        FirstName = bankAccountDto.FirstName,
+        //        LastName = bankAccountDto.LastName,
+        //        PhoneNumber = bankAccountDto.PhoneNumber,
+        //        Balance = bankAccountDto.Balance,
+        //        CreatedByUserId = "elifokumus",
+        //        CreatedOn = DateTimeOffset.UtcNow,
+        //        IsDeleted = false,
+
+
+        //    };
+
+        //    _assignmentDbContext.BankAccounts.Add(bankAccount);
+
+        //    _assignmentDbContext.SaveChanges();
+
+        //    return Ok(bankAccount);
+        //}
+        [HttpPost]
+        public IActionResult CreateBankAccount(BankAccountDto bankAccountDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var bankAccount = new BankAccount()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = bankAccountDto.FirstName,
+                LastName = bankAccountDto.LastName,
+                PhoneNumber = bankAccountDto.PhoneNumber,
+                Balance = bankAccountDto.Balance,
+                CreatedByUserId = "elifokumus",
+                CreatedOn = DateTimeOffset.UtcNow,
+                IsDeleted = false,
+
+
+            };
+
+            _assignmentDbContext.BankAccounts.Add(bankAccount);
+
+            _assignmentDbContext.SaveChanges();
+
+            return Ok(bankAccount);
         }
 
         [HttpGet("[action]/(bankAccountId:guid)")]

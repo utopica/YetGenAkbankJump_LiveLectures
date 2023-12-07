@@ -48,6 +48,17 @@ namespace Week11_Assignment.API.Controllers
 
             return Ok(movie);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
+        {
+            var movies = await _assignmentDbContext
+                .Movies
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
+
+
+            return Ok(movies);
+        }
 
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetByIdAsync (Guid id, CancellationToken cancellationToken)
@@ -62,7 +73,7 @@ namespace Week11_Assignment.API.Controllers
 
 
         [HttpGet("[action]/{MovieId}")]
-        public GetMovieDataResponseModel GetMovieData(Guid MovieId,CancellationToken cancellationToken)
+        public GetMovieDataResponseModel GetMovieData(Guid MovieId)
         {
             var movie = _assignmentDbContext.Movies.FirstOrDefault(x => x.Id == MovieId);
 
