@@ -25,6 +25,7 @@ namespace Week11_Assignment.API.Controllers
             if (movieAddDto is null || string.IsNullOrEmpty(movieAddDto.Title))
                 return BadRequest(); //I will ad other requests later 
 
+
             var movie = new Movie()
             {
                 Id = Guid.NewGuid(),
@@ -32,14 +33,14 @@ namespace Week11_Assignment.API.Controllers
                 DirectorId = movieAddDto.DirectorId,
                 ReleaseYear = movieAddDto.ReleaseYear,
                 Genre = movieAddDto.Genre,
-                Duration = movieAddDto.Duration,
                 CreatedByUserId = "elifokumus",
                 CreatedOn = DateTimeOffset.UtcNow,
                 IsDeleted = false,
-
-
+                
 
             };
+            
+
             await _assignmentDbContext.Movies.AddAsync(movie, cancellationToken);
 
             await _assignmentDbContext.SaveChangesAsync(cancellationToken);

@@ -14,7 +14,7 @@ namespace Week11_Assignment.Domain.Dtos
         public Guid DirectorId { get; set; }
         public int ReleaseYear { get; set; }
         public Genre Genre { get; set; }
-        public TimeSpan Duration { get; set; }
+        
 
     }
 }
