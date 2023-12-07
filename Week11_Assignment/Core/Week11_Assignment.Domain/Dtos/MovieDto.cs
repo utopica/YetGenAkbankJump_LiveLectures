@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Week11_Assignment.Domain.Common;
 using Week11_Assignment.Domain.Enums;
 
-namespace Week11_Assignment.Domain.Entities
+namespace Week11_Assignment.Domain.Dtos
 {
-    public class Movie : EntityBase<Guid>
+    public class MovieDto
     {
-        public string Title { get; set; }
-        public Guid DirectorId { get; set; }
-        public Director Director { get; set; }
-        public ICollection<DirectorMovies> DirectorMovies { get; set; }
 
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+
+        public string DirectorFirstName { get; set; }
+        public string DirectorLastName { get; set; }
         public int ReleaseYear { get; set; }
         public Genre Genre { get; set; }
         public TimeSpan Duration { get; set; }
+        
+        public DateTimeOffset CreatedOn { get; set; }
+
     }
 }

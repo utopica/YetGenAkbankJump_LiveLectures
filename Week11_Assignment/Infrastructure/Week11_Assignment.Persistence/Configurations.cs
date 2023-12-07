@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Week11_Assignment.Persistence
 {
-    public static class Configurations
+    public static class Configuration
     {
         public static string GetStringFromJson(string key)
         {
