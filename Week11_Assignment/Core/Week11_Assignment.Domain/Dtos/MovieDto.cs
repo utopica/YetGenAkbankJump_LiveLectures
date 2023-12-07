@@ -17,7 +17,7 @@ namespace Week11_Assignment.Domain.Dtos
         public string DirectorLastName { get; set; }
         public int ReleaseYear { get; set; }
         public Genre Genre { get; set; }
-        public TimeSpan Duration { get; set; }
+        
         
         public DateTimeOffset CreatedOn { get; set; }
 

@@ -32,7 +32,7 @@ namespace Week11_Assignment.API.Controllers
                 DirectorId = movieAddDto.DirectorId,
                 ReleaseYear = movieAddDto.ReleaseYear,
                 Genre = movieAddDto.Genre,
-                Duration = movieAddDto.Duration,
+
                 CreatedByUserId = "elifokumus",
                 CreatedOn = DateTimeOffset.UtcNow,
                 IsDeleted = false,

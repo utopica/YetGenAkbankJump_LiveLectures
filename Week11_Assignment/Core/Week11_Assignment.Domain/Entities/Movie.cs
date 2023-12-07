@@ -17,6 +17,6 @@ namespace Week11_Assignment.Domain.Entities
 
         public int ReleaseYear { get; set; }
         public Genre Genre { get; set; }
-        public TimeSpan Duration { get; set; }
+        
     }
 }
