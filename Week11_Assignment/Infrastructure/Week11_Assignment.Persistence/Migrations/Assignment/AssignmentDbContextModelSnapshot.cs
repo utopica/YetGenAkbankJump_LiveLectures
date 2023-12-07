@@ -155,6 +155,9 @@ namespace Week11_Assignment.Persistence.Migrations.Assignment
                     b.Property<Guid>("DirectorId")
                         .HasColumnType("uuid");
 
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("interval");
+
                     b.Property<int>("Genre")
                         .HasColumnType("integer");
 

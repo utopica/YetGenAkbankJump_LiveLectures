@@ -12,7 +12,7 @@ using Week11_Assignment.Persistence.Contexts;
 namespace Week11_Assignment.Persistence.Migrations.Assignment
 {
     [DbContext(typeof(AssignmentDbContext))]
-    [Migration("20231207123823_InitialCreate")]
+    [Migration("20231207120747_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -157,6 +157,9 @@ namespace Week11_Assignment.Persistence.Migrations.Assignment
 
                     b.Property<Guid>("DirectorId")
                         .HasColumnType("uuid");
+
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("interval");
 
                     b.Property<int>("Genre")
                         .HasColumnType("integer");

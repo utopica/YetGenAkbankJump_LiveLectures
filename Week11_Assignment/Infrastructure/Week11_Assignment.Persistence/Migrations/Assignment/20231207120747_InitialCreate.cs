@@ -62,6 +62,7 @@ namespace Week11_Assignment.Persistence.Migrations.Assignment
                     DirectorId = table.Column<Guid>(type: "uuid", nullable: false),
                     ReleaseYear = table.Column<int>(type: "integer", nullable: false),
                     Genre = table.Column<int>(type: "integer", nullable: false),
+                    Duration = table.Column<TimeSpan>(type: "interval", nullable: false),
                     CreatedByUserId = table.Column<string>(type: "character varying(75)", maxLength: 75, nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     ModifiedByUserId = table.Column<string>(type: "character varying(75)", maxLength: 75, nullable: true),
