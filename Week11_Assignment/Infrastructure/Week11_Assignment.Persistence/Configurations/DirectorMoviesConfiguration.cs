@@ -9,10 +9,10 @@ using Week11_Assignment.Domain.Entities;
 
 namespace Week11_Assignment.Persistence.Configurations
 {
-    public class DirectorMoviesConfiguration : IEntityTypeConfiguration<DirectorMovies> 
+    public class DirectorMoviesConfiguration : IEntityTypeConfiguration<DirectorMovie> 
     {
        
-        public void Configure(EntityTypeBuilder<DirectorMovies> builder)
+        public void Configure(EntityTypeBuilder<DirectorMovie> builder)
         {
             builder.HasKey(dm => new { dm.DirectorId, dm.MovieId });
             

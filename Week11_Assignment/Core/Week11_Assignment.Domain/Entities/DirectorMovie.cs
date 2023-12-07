@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week11_Assignment.Domain.Entities
 {
-    public class DirectorMovies
+    public class DirectorMovie
     {
         public Guid DirectorId { get; set; }
         public Director Director { get; set; }

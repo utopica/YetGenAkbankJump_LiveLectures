@@ -7,13 +7,17 @@ using Week11_Assignment.Domain.Entities;
 
 namespace Week11_Assignment.Domain.Dtos
 {
-    public class DirectorDto
+    public class DirectorAddDto
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public List<DirectorGetAllMovieDto> Movies { get; set; }
+        public List<Guid> MovieIds { get; set; }
 
+
+
+
+        //public ICollection<MovieDto> Movies { get; set; }
     }
 }

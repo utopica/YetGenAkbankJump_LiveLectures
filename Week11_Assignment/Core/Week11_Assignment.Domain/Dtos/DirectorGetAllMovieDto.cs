@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Week11_Assignment.Domain.Dtos
 {
-    public class DirectorGetAllMoviesDto
+    public class DirectorGetAllMovieDto
     {
         public Guid MovieId { get; set; }
-        public string MovieName { get; set;}
+        public string MovieTitle { get; set;}
     }
 }

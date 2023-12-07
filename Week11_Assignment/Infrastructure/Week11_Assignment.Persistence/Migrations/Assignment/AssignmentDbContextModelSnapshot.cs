@@ -116,7 +116,7 @@ namespace Week11_Assignment.Persistence.Migrations.Assignment
                     b.ToTable("Directors", (string)null);
                 });
 
-            modelBuilder.Entity("Week11_Assignment.Domain.Entities.DirectorMovies", b =>
+            modelBuilder.Entity("Week11_Assignment.Domain.Entities.DirectorMovie", b =>
                 {
                     b.Property<Guid>("DirectorId")
                         .HasColumnType("uuid");
@@ -186,7 +186,7 @@ namespace Week11_Assignment.Persistence.Migrations.Assignment
                     b.ToTable("Movies", (string)null);
                 });
 
-            modelBuilder.Entity("Week11_Assignment.Domain.Entities.DirectorMovies", b =>
+            modelBuilder.Entity("Week11_Assignment.Domain.Entities.DirectorMovie", b =>
                 {
                     b.HasOne("Week11_Assignment.Domain.Entities.Director", "Director")
                         .WithMany("DirectorMovies")

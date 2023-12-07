@@ -12,7 +12,7 @@ namespace Week11_Assignment.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public ICollection<DirectorMovies> DirectorMovies { get; set; }
+        public ICollection<DirectorMovie> DirectorMovies { get; set; }
 
         
     }
