@@ -61,6 +61,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Persistence", "Week6_1\Infrastructure\RedoMusicMarket.Persistence\RedoMusicMarket.Persistence.csproj", "{360604E5-AE94-4937-BADD-B285BEE767EF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{ACFBEE55-C4AD-439B-B7C0-3AF0B08FE14B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.MVC", "Week6_1\Presentation\RedoMusicMarket.MVC\RedoMusicMarket.MVC.csproj", "{B73A0B82-12A8-411B-A45B-24B2606157F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +131,10 @@ Global
 		{360604E5-AE94-4937-BADD-B285BEE767EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{360604E5-AE94-4937-BADD-B285BEE767EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{360604E5-AE94-4937-BADD-B285BEE767EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B73A0B82-12A8-411B-A45B-24B2606157F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B73A0B82-12A8-411B-A45B-24B2606157F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B73A0B82-12A8-411B-A45B-24B2606157F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B73A0B82-12A8-411B-A45B-24B2606157F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +163,8 @@ Global
 		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F} = {7C8F3418-027A-48BD-87AE-E680192088BE}
 		{822925FC-F9FD-4165-B08B-21A467FF1F79} = {382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}
 		{360604E5-AE94-4937-BADD-B285BEE767EF} = {822925FC-F9FD-4165-B08B-21A467FF1F79}
+		{ACFBEE55-C4AD-439B-B7C0-3AF0B08FE14B} = {382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}
+		{B73A0B82-12A8-411B-A45B-24B2606157F4} = {ACFBEE55-C4AD-439B-B7C0-3AF0B08FE14B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBFD949E-921C-4A7F-A402-39C6E1BE3135}

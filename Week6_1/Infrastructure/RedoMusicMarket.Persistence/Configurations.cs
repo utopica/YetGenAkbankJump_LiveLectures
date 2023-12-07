@@ -12,7 +12,7 @@ namespace RedoMusicMarket.Persistence
         public static string GetStringFromJson(string key)
         {
             ConfigurationManager configurationManager = new();
-            string path = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName}\\Infrastructure\\ReDoMusicMarket.Persistence";
+            string path = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName}\\Infrastructure\\RedoMusicMarket.Persistence";
 
             configurationManager.SetBasePath(path);
 

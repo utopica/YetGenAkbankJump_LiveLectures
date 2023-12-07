@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReDoMusicMarket.Persistence.Contexts
+namespace RedoMusicMarket.Persistence.Contexts
 {
-    public class ReDoMusicMarketDbContext : DbContext
+    public class RedoMusicMarketDbContext : DbContext
     {
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<Brand> Brands { get; set; }
