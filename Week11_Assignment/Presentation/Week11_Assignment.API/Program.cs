@@ -1,11 +1,18 @@
+using System.Text.Json.Serialization;
 using Week11_Assignment.Persistence.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
 
+builder.Services.AddControllers()
+
+    .AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+
+    });
 // Adding DbContext 
 
 builder.Services.AddDbContext<AssignmentDbContext>();
