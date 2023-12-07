@@ -9,7 +9,7 @@ using Week11_Assignment.Domain.Common;
 
 namespace Week11_Assignment.Domain.Entities
 {
-    [MetadataType(typeof(BankAccountMetaData))]
+    
     public class BankAccount : EntityBase<Guid>
     {
  

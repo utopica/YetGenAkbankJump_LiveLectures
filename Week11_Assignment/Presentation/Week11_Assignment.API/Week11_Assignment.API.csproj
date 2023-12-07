@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Week11_Assignment.Domain\Week11_Assignment.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Week11_Assignment.Persistence\Week11_Assignment.Persistence.csproj" />
   </ItemGroup>
 
