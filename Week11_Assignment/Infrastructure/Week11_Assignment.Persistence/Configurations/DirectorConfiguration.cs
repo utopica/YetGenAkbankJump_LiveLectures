@@ -49,8 +49,6 @@ namespace Week11_Assignment.Persistence.Configurations
             // IsDeleted
             builder.Property(x => x.IsDeleted).IsRequired();
 
-
-
             builder.ToTable("Directors");
             
         }

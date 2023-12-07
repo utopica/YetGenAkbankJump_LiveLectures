@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Week11_Assignment.Domain.Entities;
@@ -57,8 +56,13 @@ namespace Week11_Assignment.Persistence.Configurations
 
             // Relationships
 
-           
-            
+            // DirectorId - Foreign Key
+            //builder.Property(x => x.DirectorId).IsRequired();
+
+            //builder.HasOne(x => x.Director)
+            //    .WithMany(d => d.Movies)
+            //    .HasForeignKey(x => x.DirectorId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             builder.ToTable("Movies");
         }

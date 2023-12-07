@@ -15,7 +15,7 @@ namespace Week11_Assignment.Persistence.Configurations
         public void Configure(EntityTypeBuilder<DirectorMovie> builder)
         {
             builder.HasKey(dm => new { dm.DirectorId, dm.MovieId });
-
+            
             builder.HasOne(dm => dm.Director)
                 .WithMany(x => x.DirectorMovies)
                 .HasForeignKey(dm => dm.DirectorId);
