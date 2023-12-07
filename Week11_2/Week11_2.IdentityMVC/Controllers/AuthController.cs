@@ -10,11 +10,13 @@ namespace Week11_2.IdentityMVC.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly IToastNotification _toastNotification;
-
-        public AuthController(UserManager<User> userManager, IToastNotification toastNotification)
+        private readonly SignInManager<User> _signInManager;
+        
+        public AuthController(UserManager<User> userManager, IToastNotification toastNotification, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _toastNotification = toastNotification;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -25,6 +27,11 @@ namespace Week11_2.IdentityMVC.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", controllerName: "Students");
+            }
+
             var regiesterViewModel = new AuthRegisterViewModel();
 
             return View(regiesterViewModel);
@@ -45,26 +52,89 @@ namespace Week11_2.IdentityMVC.Controllers
                 FirstName = registerViewModel.FirstName,
                 LastName = registerViewModel.LastName,
                 Email = registerViewModel.Email,
-                BirthDate = registerViewModel.BirthDate,
+                BirthDate = registerViewModel.BirthDate.Value.ToUniversalTime(),
                 Gender = registerViewModel.Gender,
                 UserName = registerViewModel.Username,
                 CreatedByUserId = userId.ToString(),
                 CreatedOn = DateTimeOffset.UtcNow,
+
+
             };
 
-            var identityResult = await _userManager.CreateAsync(user,registerViewModel.Password);
+            var identityResult = await _userManager.CreateAsync(user, registerViewModel.Password);
 
-            if(!identityResult.Succeeded)
+            //if(!identityResult.Succeeded)
+            //{
+            //    throw new Exception("Identity operation failed.");
+            //}
+
+            if (!identityResult.Succeeded)
             {
-                throw new Exception("Identity operation failed.");
+                foreach (var error in identityResult.Errors)
+                {
+                    ModelState.AddModelError(error.Code, error.Description);
+
+
+                }
+                return View(registerViewModel);
             }
+
 
             //if regiestering is successful
 
             _toastNotification.AddSuccessToastMessage("You have successfully registered to the application.");
 
-
-            return View();
+            return RedirectToAction(nameof(Login));
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", controllerName: "Students");
+            } //if the user is authenticated, user should view the index page
+
+            var loginViewModel = new AuthLoginViewModel();
+
+            return View(loginViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LoginAsync(AuthLoginViewModel loginViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(loginViewModel);
+            }
+
+            var user = await _userManager.FindByEmailAsync(loginViewModel.Email);
+
+            if (user is null)
+            {
+                _toastNotification.AddErrorToastMessage("Your email or password is incorrect!");
+
+                return View(loginViewModel);
+
+            }
+
+            var loginResult = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, true, false);
+
+            if (!loginResult.Succeeded)
+            {
+                _toastNotification.AddErrorToastMessage("Your email or password is incorrect!");
+
+                return View(loginViewModel);
+            }
+
+            _toastNotification.AddSuccessToastMessage($"Welcome {user.FirstName}, you have successfully sign in to the application.");
+
+            return RedirectToAction("Index", controllerName: "Students");
+        }
+
+
     }
+
+
+
 }

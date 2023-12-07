@@ -23,7 +23,7 @@ builder.Services.AddDbContext<IdentityContext>(options =>
 });
 
 
-// Activating the session structure
+// Activating the session structure 
 
 builder.Services.AddSession(options =>
 {
