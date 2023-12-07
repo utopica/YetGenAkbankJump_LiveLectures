@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Week11_Assignment.API.Models;
 using Week11_Assignment.Domain.Dtos;
 using Week11_Assignment.Domain.Entities;
 using Week11_Assignment.Persistence.Contexts;
@@ -129,12 +130,27 @@ namespace Week11_Assignment.API.Controllers
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            var category = await _assignmentDbContext
+            var director = await _assignmentDbContext
                 .Directors
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
-            return Ok(category);
+            return Ok(director);
+        }
+
+        [HttpGet("[action] /{DirectorId}")]
+        public GetDirectorDataResponseModel GetDirectorData(Guid DirectorId)
+        {
+            var director = _assignmentDbContext.Directors.FirstOrDefault(x => x.Id == DirectorId);
+
+            var response = new GetDirectorDataResponseModel()
+            {
+                FirstName = director.FirstName,
+                LastName = director.LastName,
+                DirectorMovies = director.DirectorMovies,
+            };
+
+            return response;
         }
 
 
