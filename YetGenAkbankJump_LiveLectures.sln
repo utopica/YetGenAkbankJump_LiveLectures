@@ -57,6 +57,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7C8F3418-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Domain", "Week6_1\Core\RedoMusicMarket.Domain\RedoMusicMarket.Domain.csproj", "{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{822925FC-F9FD-4165-B08B-21A467FF1F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Persistence", "Week6_1\Infrastructure\RedoMusicMarket.Persistence\RedoMusicMarket.Persistence.csproj", "{360604E5-AE94-4937-BADD-B285BEE767EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +123,10 @@ Global
 		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360604E5-AE94-4937-BADD-B285BEE767EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360604E5-AE94-4937-BADD-B285BEE767EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360604E5-AE94-4937-BADD-B285BEE767EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360604E5-AE94-4937-BADD-B285BEE767EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,6 +153,8 @@ Global
 		{2F4CF359-B786-413C-A22D-AD85323511EE} = {DB420D46-D9D3-4663-9311-709114B205AC}
 		{7C8F3418-027A-48BD-87AE-E680192088BE} = {382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}
 		{36F58EDA-06A5-40D5-9566-2F5B93C4B00F} = {7C8F3418-027A-48BD-87AE-E680192088BE}
+		{822925FC-F9FD-4165-B08B-21A467FF1F79} = {382CDBD2-0CFE-4CD4-ADAE-D9DF7FCD9E40}
+		{360604E5-AE94-4937-BADD-B285BEE767EF} = {822925FC-F9FD-4165-B08B-21A467FF1F79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBFD949E-921C-4A7F-A402-39C6E1BE3135}
