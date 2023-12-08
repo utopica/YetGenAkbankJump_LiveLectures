@@ -29,7 +29,7 @@ namespace MilanMolat.API.Controllers
         }
 
         [HttpGet("action / {defraudedPersonId:guid}")]
-        public async Task<IActionResult> GetDefraudedPersonName(Guid defraudedPersonId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByIdAsync(Guid defraudedPersonId, CancellationToken cancellationToken)
         {
             var defraudedPerson = await _milanMolatDbContext
                 .DefraudedPeople
@@ -45,7 +45,7 @@ namespace MilanMolat.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
         {
             //var defraudedPeople = _milanMolatDbContext.DefraudedPeople.ToList();
 
