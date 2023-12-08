@@ -364,11 +364,10 @@ FodyWeavers.xsd
 Week7_2/Infrastructure/Week7_2.Persistence/PrivateInformations.json
 Week9_1/Week9_1.WebApi/ConnectionString.json
 Week9_1/Week9_1.WebApi/appsettings.json
-Week9_1/Week9_1.WebApi/appsettings.json
-Week9_1/Week9_1.WebApi/appsettings.json
 Week11_2/Week11_2.IdentityMVC/appsettings.json
 Week11_2/Week11_2.IdentityMVC/ConnectionString.json
 Week11_Assignment/Presentation/Week11_Assignment.API/appsettings.json
 Week11_Assignment/Infrastructure/Week11_Assignment.Persistence/PrivateInformations.json
 Week6_1/Infrastructure/RedoMusicMarket.Persistence/PrivateInformations.json
 Week6_1/Presentation/RedoMusicMarket.MVC/appsettings.json
+Week12_1/Infrastructure/MilanMolat.Infrastructure/PrivateInformations.json

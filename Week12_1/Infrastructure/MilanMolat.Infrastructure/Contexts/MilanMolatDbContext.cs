@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Week11_Assignment.Persistence;
 
 namespace MilanMolat.Infrastructure.Contexts
 {
@@ -13,11 +14,16 @@ namespace MilanMolat.Infrastructure.Contexts
         public DbSet<DefraudedPerson> DefraudedPeople { get; set; }
 
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseInMemoryDatabase("MilanMolatDb");
+
+        //    base.OnConfiguring(optionsBuilder);
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("MilanMolatDb");
-
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseNpgsql(Configuration.GetStringFromJson("ConnectionStrings:PostgreSQL"));
         }
 
     }
