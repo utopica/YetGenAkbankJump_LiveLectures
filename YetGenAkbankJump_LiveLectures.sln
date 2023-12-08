@@ -55,15 +55,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week6_1", "Week6_1", "{382C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7C8F3418-027A-48BD-87AE-E680192088BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Domain", "Week6_1\Core\RedoMusicMarket.Domain\RedoMusicMarket.Domain.csproj", "{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedoMusicMarket.Domain", "Week6_1\Core\RedoMusicMarket.Domain\RedoMusicMarket.Domain.csproj", "{36F58EDA-06A5-40D5-9566-2F5B93C4B00F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{822925FC-F9FD-4165-B08B-21A467FF1F79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.Persistence", "Week6_1\Infrastructure\RedoMusicMarket.Persistence\RedoMusicMarket.Persistence.csproj", "{360604E5-AE94-4937-BADD-B285BEE767EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedoMusicMarket.Persistence", "Week6_1\Infrastructure\RedoMusicMarket.Persistence\RedoMusicMarket.Persistence.csproj", "{360604E5-AE94-4937-BADD-B285BEE767EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{ACFBEE55-C4AD-439B-B7C0-3AF0B08FE14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedoMusicMarket.MVC", "Week6_1\Presentation\RedoMusicMarket.MVC\RedoMusicMarket.MVC.csproj", "{B73A0B82-12A8-411B-A45B-24B2606157F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedoMusicMarket.MVC", "Week6_1\Presentation\RedoMusicMarket.MVC\RedoMusicMarket.MVC.csproj", "{B73A0B82-12A8-411B-A45B-24B2606157F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week12_1", "Week12_1", "{609341C6-FB52-4A5E-BBD7-F7DCBA2268EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
