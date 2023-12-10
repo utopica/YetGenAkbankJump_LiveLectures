@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using Week11_Assignment.Domain.Entities;
+using Week11_Assignment.Persistence.Domain.Entities;
 
-namespace Week11_Assignment.Persistence.Configurations
+namespace Week11_Assignment.Persistence.Infrastructure.Configurations
 {
     public class DirectorConfiguration : IEntityTypeConfiguration<Director>
     {

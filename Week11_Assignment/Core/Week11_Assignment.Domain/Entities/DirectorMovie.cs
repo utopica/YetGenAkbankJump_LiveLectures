@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week11_Assignment.Domain.Entities
+namespace Week11_Assignment.Persistence.Domain.Entities
 {
     public class DirectorMovie
     {

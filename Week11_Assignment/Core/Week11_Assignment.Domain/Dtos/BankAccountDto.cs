@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week11_Assignment.Domain.Dtos
+namespace Week11_Assignment.Persistence.Domain.Dtos
 {
     public class BankAccountDto
     {

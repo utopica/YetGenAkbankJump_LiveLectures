@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Week11_Assignment.Domain.Identity;
+using Week11_Assignment.Persistence.Domain.Identity;
 
-namespace Week11_Assignment.Persistence.Configurations.Identity
+namespace Week11_Assignment.Persistence.Infrastructure.Configurations.Identity
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

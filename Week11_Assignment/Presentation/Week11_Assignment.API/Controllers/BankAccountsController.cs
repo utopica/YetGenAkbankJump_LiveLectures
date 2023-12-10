@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Week11_Assignment.API.Models;
-using Week11_Assignment.Domain.Dtos;
-using Week11_Assignment.Domain.Entities;
-using Week11_Assignment.Persistence.Contexts;
+using Week11_Assignment.Persistence.API.Models;
+using Week11_Assignment.Persistence.Domain.Dtos;
+using Week11_Assignment.Persistence.Domain.Entities;
+using Week11_Assignment.Persistence.Infrastructure.Contexts;
 
 
-namespace Week11_Assignment.API.Controllers
+namespace Week11_Assignment.Persistence.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

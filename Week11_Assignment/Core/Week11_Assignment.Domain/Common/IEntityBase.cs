@@ -1,4 +1,4 @@
-﻿namespace Week11_Assignment.Domain.Common
+﻿namespace Week11_Assignment.Persistence.Domain.Common
 {
     public interface IEntityBase<TKey>
     {

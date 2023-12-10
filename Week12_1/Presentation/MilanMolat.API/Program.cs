@@ -1,6 +1,6 @@
-using MilanMolat.API.Services.Interfaces;
-using MilanMolat.API.Services;
-using MilanMolat.Infrastructure.Contexts;
+using Week11_Assignment.Persistence.API.Services.Interfaces;
+using Week11_Assignment.Persistence.API.Services;
+using Week11_Assignment.Persistence.Infrastructure.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 

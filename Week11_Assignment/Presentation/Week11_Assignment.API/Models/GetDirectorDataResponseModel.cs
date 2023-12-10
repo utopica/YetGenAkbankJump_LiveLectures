@@ -1,6 +1,6 @@
-﻿using Week11_Assignment.Domain.Entities;
+﻿using Week11_Assignment.Persistence.Domain.Entities;
 
-namespace Week11_Assignment.API.Models
+namespace Week11_Assignment.Persistence.API.Models
 {
     public class GetDirectorDataResponseModel
     {

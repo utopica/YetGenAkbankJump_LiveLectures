@@ -1,4 +1,4 @@
-﻿namespace Week11_Assignment.Domain.Enums
+﻿namespace Week11_Assignment.Persistence.Domain.Enums
 {
     public enum Gender
     {

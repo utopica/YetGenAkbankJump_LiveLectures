@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week11_Assignment.Domain.Enums
+namespace Week11_Assignment.Persistence.Domain.Enums
 {
     public enum Genre
     {
