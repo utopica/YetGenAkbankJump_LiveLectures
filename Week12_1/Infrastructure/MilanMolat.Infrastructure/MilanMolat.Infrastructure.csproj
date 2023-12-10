@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\MilanMolat.Application\MilanMolat.Application.csproj" />
     <ProjectReference Include="..\..\Core\MilanMolat.Domain\MilanMolat.Domain.csproj" />
   </ItemGroup>
 
