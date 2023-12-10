@@ -73,13 +73,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{19DA4A3B-3EEA-42FD-A49B-425762B3E6BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilanMolat.Domain", "Week12_1\Core\MilanMolat.Domain\MilanMolat.Domain.csproj", "{4EEDA093-440F-4E25-B50F-D82F306568DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilanMolat.Domain", "Week12_1\Core\MilanMolat.Domain\MilanMolat.Domain.csproj", "{4EEDA093-440F-4E25-B50F-D82F306568DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilanMolat.Application", "Week12_1\Core\MilanMolat.Application\MilanMolat.Application.csproj", "{BD262E02-69BB-4BF5-9A07-43F65A11ED2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilanMolat.Application", "Week12_1\Core\MilanMolat.Application\MilanMolat.Application.csproj", "{BD262E02-69BB-4BF5-9A07-43F65A11ED2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilanMolat.Infrastructure", "Week12_1\Infrastructure\MilanMolat.Infrastructure\MilanMolat.Infrastructure.csproj", "{CDF7A714-B959-4C9D-BCDD-FCEE2025F4F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilanMolat.Infrastructure", "Week12_1\Infrastructure\MilanMolat.Infrastructure\MilanMolat.Infrastructure.csproj", "{CDF7A714-B959-4C9D-BCDD-FCEE2025F4F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilanMolat.API", "Week12_1\Presentation\MilanMolat.API\MilanMolat.API.csproj", "{45B98D51-09E1-4D61-95C8-49D4C5A8F6BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilanMolat.API", "Week12_1\Presentation\MilanMolat.API\MilanMolat.API.csproj", "{45B98D51-09E1-4D61-95C8-49D4C5A8F6BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

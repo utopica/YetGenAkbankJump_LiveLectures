@@ -6,10 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Week11_Assignment.Persistence.Domain.Identity;
-using Week11_Assignment.Persistence.Domain.Entities;
+using Week11_Assignment.Domain.Identity;
+using Week11_Assignment.Domain.Entities;
 
-namespace Week11_Assignment.Persistence.Infrastructure.Contexts
+namespace Week11_Assignment.Persistence.Contexts
 {
     public class AssignmentIdentityDbContext : IdentityDbContext<User,Role,Guid>
     {

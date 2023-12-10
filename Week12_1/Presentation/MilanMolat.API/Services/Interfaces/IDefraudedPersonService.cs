@@ -1,6 +1,6 @@
-﻿using Week11_Assignment.Persistence.Domain.Entities;
+﻿using MilanMolat.Domain.Entities;
 
-namespace Week11_Assignment.Persistence.API.Services.Interfaces
+namespace MilanMolat.API.Services.Interfaces
 {
     public interface IDefraudedPersonService
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Week11_Assignment.Persistence.Domain.Common;
-using Week11_Assignment.Persistence.Domain.Entities;
-using Week11_Assignment.Persistence.Domain.Enums;
+using Week11_Assignment.Domain.Common;
+using Week11_Assignment.Domain.Entities;
+using Week11_Assignment.Domain.Enums;
 
-namespace Week11_Assignment.Persistence.Domain.Identity
+namespace Week11_Assignment.Domain.Identity
 {
     public class User:IdentityUser<Guid>,IEntityBase<Guid>,ICreatedByEntity,IModifiedByEntity
     {

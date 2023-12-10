@@ -3,12 +3,12 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Week11_Assignment.Persistence.Infrastructure.Contexts;
+using MilanMolat.Infrastructure.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Week11_Assignment.Persistence.Infrastructure.Migrations
+namespace MilanMolat.Infrastructure.Migrations
 {
     [DbContext(typeof(MilanMolatDbContext))]
     partial class MilanMolatDbContextModelSnapshot : ModelSnapshot

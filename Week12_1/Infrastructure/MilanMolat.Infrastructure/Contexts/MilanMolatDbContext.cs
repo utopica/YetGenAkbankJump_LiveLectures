@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Week11_Assignment.Persistence.Domain.Entities;
+using MilanMolat.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Week11_Assignment.Persistence.Infrastructure;
+using Week11_Assignment.Persistence;
 
-namespace Week11_Assignment.Persistence.Infrastructure.Contexts
+namespace MilanMolat.Infrastructure.Contexts
 {
     public class MilanMolatDbContext : DbContext
     {

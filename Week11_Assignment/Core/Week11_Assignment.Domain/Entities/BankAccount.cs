@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using Week11_Assignment.Persistence.Domain.Common;
+using Week11_Assignment.Domain.Common;
 
-namespace Week11_Assignment.Persistence.Domain.Entities
+namespace Week11_Assignment.Domain.Entities
 {
     
     public class BankAccount : EntityBase<Guid>

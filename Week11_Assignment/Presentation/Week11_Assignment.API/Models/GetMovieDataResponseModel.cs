@@ -1,7 +1,7 @@
-﻿using Week11_Assignment.Persistence.Domain.Entities;
-using Week11_Assignment.Persistence.Domain.Enums;
+﻿using Week11_Assignment.Domain.Entities;
+using Week11_Assignment.Domain.Enums;
 
-namespace Week11_Assignment.Persistence.API.Models
+namespace Week11_Assignment.API.Models
 {
     public class GetMovieDataResponseModel
     {

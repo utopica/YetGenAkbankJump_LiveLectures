@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Week11_Assignment.Persistence.API.Models.ModelMetaDataType
+namespace Week11_Assignment.API.Models.ModelMetaDataType
 {
     [ModelMetadataType(typeof(BankAccountMetaData))]
     public class BankAccountMetaData

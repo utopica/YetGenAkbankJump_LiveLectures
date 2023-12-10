@@ -1,6 +1,6 @@
-﻿using Week11_Assignment.Persistence.Domain.Common;
+﻿using Week11_Assignment.Domain.Common;
 
-namespace Week11_Assignment.Persistence.Domain.Identity
+namespace Week11_Assignment.Domain.Identity
 {
     public class UserSetting:EntityBase<Guid>
     {

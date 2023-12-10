@@ -1,4 +1,4 @@
-﻿namespace Week11_Assignment.Persistence.API.Models
+﻿namespace Week11_Assignment.API.Models
 {
     public class GetBankAccountDataResponseModel
     {

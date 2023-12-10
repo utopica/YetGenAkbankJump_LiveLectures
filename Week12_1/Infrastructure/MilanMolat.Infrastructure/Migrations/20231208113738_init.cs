@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Week11_Assignment.Persistence.Infrastructure.Migrations
+namespace MilanMolat.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration

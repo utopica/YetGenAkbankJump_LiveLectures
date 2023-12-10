@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Week11_Assignment.Persistence.API.Services;
-using Week11_Assignment.Persistence.API.Services.Interfaces;
-using Week11_Assignment.Persistence.Infrastructure.Contexts;
+using MilanMolat.API.Services;
+using MilanMolat.API.Services.Interfaces;
+using MilanMolat.Infrastructure.Contexts;
 
-namespace Week11_Assignment.Persistence.API.Controllers
+namespace MilanMolat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -53,8 +53,6 @@ namespace Week11_Assignment.Persistence.API.Controllers
                 .DefraudedPeople
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
-
-            await Console.Out.WriteLineAsync(string.Join("\n",defraudedPeople.Select(x => x.Id).ToList()));
 
             return Ok(defraudedPeople);
         }

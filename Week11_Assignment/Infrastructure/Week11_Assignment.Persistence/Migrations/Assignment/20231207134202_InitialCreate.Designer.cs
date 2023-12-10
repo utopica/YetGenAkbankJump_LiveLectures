@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Week11_Assignment.Persistence.Infrastructure.Contexts;
+using Week11_Assignment.Persistence.Contexts;
 
 #nullable disable
 
-namespace Week11_Assignment.Persistence.Infrastructure.Migrations.Assignment
+namespace Week11_Assignment.Persistence.Migrations.Assignment
 {
     [DbContext(typeof(AssignmentDbContext))]
     [Migration("20231207134202_InitialCreate")]
