@@ -1,6 +1,8 @@
 using MilanMolat.API.Services.Interfaces;
 using MilanMolat.API.Services;
 using MilanMolat.Infrastructure.Contexts;
+using MilanMolat.Application.Abstract.DefraudedPersonRepositories;
+using MilanMolat.Infrastructure.Repositories.DefraudedPerson;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +16,10 @@ builder.Services.AddSwaggerGen();
 // IMPLEMENTATIONS
 
 builder.Services.AddScoped<MilanMolatDbContext>();
+
 builder.Services.AddScoped<IDefraudedPersonService, DefraudedPersonService>();
 
+builder.Services.AddScoped<IDefraudedPersonReadRepository, DefraudedPersonReadRepository>();
 
 var app = builder.Build();
 

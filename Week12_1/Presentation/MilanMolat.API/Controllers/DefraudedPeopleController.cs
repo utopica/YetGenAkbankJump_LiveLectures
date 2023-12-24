@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MilanMolat.API.Services;
 using MilanMolat.API.Services.Interfaces;
+using MilanMolat.Application.Abstract.DefraudedPersonRepositories;
 using MilanMolat.Infrastructure.Contexts;
 
 namespace MilanMolat.API.Controllers
@@ -11,48 +12,62 @@ namespace MilanMolat.API.Controllers
     [ApiController]
     public class DefraudedPeopleController : ControllerBase
     {
+        private readonly IDefraudedPersonReadRepository _context;
         private readonly MilanMolatDbContext _milanMolatDbContext;
         private readonly IDefraudedPersonService _defraudedPersonService;
 
 
-        public DefraudedPeopleController(MilanMolatDbContext milanMolatDbContext, IDefraudedPersonService defraudedPersonService)
+        public DefraudedPeopleController(IDefraudedPersonService defraudedPersonService, IDefraudedPersonReadRepository context, MilanMolatDbContext milanMolatDbContext)
         {
+            _context = context;
+
             _milanMolatDbContext = milanMolatDbContext;
 
             _defraudedPersonService = defraudedPersonService;
 
+            //you should code IDefraudedPersonWriteRepository 
+            //_context.Table.AddRange(_defraudedPersonService.CreateDefraudedPeople());
+            //_context.SaveChanges();
+
             _milanMolatDbContext.DefraudedPeople.AddRange(_defraudedPersonService.CreateDefraudedPeople());
 
-            //_milanMolatDbContext.SaveChanges(); //you should save changes one time.
-
-
+            _milanMolatDbContext.SaveChanges(); //you should save changes one time.
+            
         }
 
         [HttpGet("action / {defraudedPersonId:guid}")]
-        public async Task<IActionResult> GetByIdAsync(Guid defraudedPersonId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByIdAsync(string defraudedPersonId, CancellationToken cancellationToken)
         {
-            var defraudedPerson = await _milanMolatDbContext
-                .DefraudedPeople
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == defraudedPersonId,cancellationToken);
+            var person = _context.GetById(defraudedPersonId);
 
-            if (defraudedPerson is null)
-                return BadRequest("Defrauded person not found.");
+            return Ok(person is null ? "Could'nt find!" : person.FirstName);
 
-            //Console.WriteLine(string.Join("\n", _milanMolatDbContext.DefraudedPeople.Select(x => x.Id).ToList()));
+            //before the repository pattern 
+            //var defraudedPerson = await _context
+            //    .DefraudedPeople
+            //    .AsNoTracking()
+            //    .FirstOrDefaultAsync(x => x.Id == defraudedPersonId,cancellationToken);
 
-            return Ok(defraudedPerson);
+            //if (defraudedPerson is null)
+            //    return BadRequest("Defrauded person not found.");
+
+            ////Console.WriteLine(string.Join("\n", _milanMolatDbContext.DefraudedPeople.Select(x => x.Id).ToList()));
+
+            //return Ok(defraudedPerson);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken)
         {
+            var defraudedPeople = _context.GetAll();
+            //before repository patter
+
             //var defraudedPeople = _milanMolatDbContext.DefraudedPeople.ToList();
 
-            var defraudedPeople = await _milanMolatDbContext
-                .DefraudedPeople
-                .AsNoTracking()
-                .ToListAsync(cancellationToken);
+            //var defraudedPeople = await _context
+            //    .DefraudedPeople
+            //    .AsNoTracking()
+            //    .ToListAsync(cancellationToken);
 
             return Ok(defraudedPeople);
         }
