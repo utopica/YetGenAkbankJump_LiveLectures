@@ -13,7 +13,9 @@ namespace MilanMolat.API.Controllers
     public class DefraudedPeopleController : ControllerBase
     {
         private readonly IDefraudedPersonReadRepository _context;
-        private readonly MilanMolatDbContext _milanMolatDbContext;
+
+        private readonly MilanMolatDbContext _milanMolatDbContext; //created just because creating example instances
+        
         private readonly IDefraudedPersonService _defraudedPersonService;
 
 
@@ -29,12 +31,16 @@ namespace MilanMolat.API.Controllers
             //_context.Table.AddRange(_defraudedPersonService.CreateDefraudedPeople());
             //_context.SaveChanges();
 
-            _milanMolatDbContext.DefraudedPeople.AddRange(_defraudedPersonService.CreateDefraudedPeople());
-
-            _milanMolatDbContext.SaveChanges(); //you should save changes one time.
             
         }
+        public void CreateExampleInstances()
+        {
+            _milanMolatDbContext.DefraudedPeople.AddRange(_defraudedPersonService.CreateDefraudedPeople());
+            _milanMolatDbContext.SaveChanges(); //you should save changes one time.
+            
+            //Console.WriteLine(string.Join("\n", _milanMolatDbContext.DefraudedPeople.Select(x => x.Id).ToList()));
 
+        }
         [HttpGet("action / {defraudedPersonId:guid}")]
         public async Task<IActionResult> GetByIdAsync(string defraudedPersonId, CancellationToken cancellationToken)
         {
@@ -51,7 +57,6 @@ namespace MilanMolat.API.Controllers
             //if (defraudedPerson is null)
             //    return BadRequest("Defrauded person not found.");
 
-            ////Console.WriteLine(string.Join("\n", _milanMolatDbContext.DefraudedPeople.Select(x => x.Id).ToList()));
 
             //return Ok(defraudedPerson);
         }
