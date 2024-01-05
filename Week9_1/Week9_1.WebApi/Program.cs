@@ -41,6 +41,10 @@ builder.Services.AddSingleton<ITextService,TextService>();
 
 builder.Services.AddSingleton<IIPService, IPService>();
 
+builder.Services.AddScoped<FakeDataService>();
+
+builder.Services.AddMemoryCache();
+
 // Localization
 
 builder.Services.AddLocalization(options =>
@@ -73,6 +77,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+
 
 var app = builder.Build();
 

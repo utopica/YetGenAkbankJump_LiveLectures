@@ -54,7 +54,7 @@ namespace Week10_1.Persistence.Configurations
             //RegistrationFee
             builder.Property(x => x.RegistrationFee).IsRequired(false); //this field is nullable
 
-            builder.Property(x => x.RegistrationFee).HasColumnType("decimal(10,8)");
+            builder.Property(x => x.RegistrationFee).HasColumnType("decimal(19,12)");
 
             //Gender
             builder.Property(x => x.Gender).IsRequired();
